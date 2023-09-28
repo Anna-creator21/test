@@ -1,0 +1,28 @@
+import random
+
+def generate_random_array(size):
+    array = [random.randint(1, 1000) for _ in range(size)]
+    return array
+
+def sort_even_odd(arrays):
+    for a, array in enumerate(arrays):
+        if a % 2 == 0:
+            arrays[a] = sorted(array)
+        else:
+            arrays[a] = sorted(array, reverse=True)
+
+def generate_sorted_arrays(n):
+    arrays = []
+
+    for a in range(n):
+        size = random.randint(1, 100)
+        array = generate_random_array(size)
+        arrays.append(array)
+
+    sort_even_odd(arrays)
+
+    return arrays
+
+n = 10
+sorted_arrays = generate_sorted_arrays(n)
+print(sorted_arrays)
